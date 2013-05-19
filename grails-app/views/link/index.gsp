@@ -5,15 +5,16 @@
   URL: <g:textField name="url"/><br/>
   <input type="submit" value="Add new link"/>
 </g:form>
-
 <hr>
-
 <ul>
   <% if(links.size() == 0) { %>
     <li>No links</li>
   <% } else { %>
     <% for(link in links) { %>
-      <li><%= link.title %></li>
+      <li>
+        <a href="http://<%= link.url %>"><%= link.title %></a> 
+        (<a href="likeLink/<%= link.id %>">Like!</a> -- <a href="unLikeLink/<%= link.id %>">Unlike!</a>) | <%= link.likecounts %> likes
+      </li>
     <% } %> 
   <% } %>
 </ul>
